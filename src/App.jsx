@@ -1,8 +1,17 @@
+import { Container } from "@mui/material";
+import { Outlet } from "react-router-dom";
+import Header from "./components/Header";
+import SwitchTheme from "./components/SwitchTheme";
+
 function App() {
   return (
-    <div>
-      <h1>Hello Movie App</h1>
-    </div>
+    <>
+      <Header />
+      <Container>
+        <SwitchTheme />
+        <Outlet />
+      </Container>
+    </>
   );
 }
 

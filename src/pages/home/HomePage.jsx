@@ -1,7 +1,15 @@
+import { Box } from "@mui/system";
 import React from "react";
+import SearchBar from "./components/SearchBar";
 
 const HomePage = () => {
-  return <div>HomePage</div>;
+  return (
+    <>
+      <Box>
+        <SearchBar full />
+      </Box>
+    </>
+  );
 };
 
 export default HomePage;

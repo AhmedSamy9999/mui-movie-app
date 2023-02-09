@@ -15,7 +15,12 @@ const Header = () => {
         >
           <Grid item>
             <Link to="/">
-              <Typography variant="h4" component="h1" color="#fff">
+              <Typography
+                variant="h4"
+                component="h1"
+                color="#fff"
+                fontWeight={700}
+              >
                 Movie App
               </Typography>
             </Link>

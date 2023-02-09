@@ -49,10 +49,19 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
     borderRadius: 20 / 2,
   },
 }));
-const SwitchTheme = () => {
+const SwitchTheme = ({ value, setValue }) => {
+  function switchTheValue() {
+    setValue((prev) => !prev);
+  }
   return (
     <FormControlLabel
-      control={<MaterialUISwitch sx={{ m: 1 }} defaultChecked />}
+      control={
+        <MaterialUISwitch
+          sx={{ m: 1 }}
+          checked={value}
+          onChange={switchTheValue}
+        />
+      }
     />
   );
 };

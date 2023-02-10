@@ -1,0 +1,19 @@
+.movie-content {
+  opacity: 0;
+  transform: translateY(100px);
+  transition: all 0.3s;
+  overflow: hidden;
+}
+
+.movie-card:hover .movie-content {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.MuiCardActionArea-focusHighlight {
+  background-color: transparent !important;
+}
+
+.MuiPaper.MuiCard {
+  box-shadow: none !important;
+}

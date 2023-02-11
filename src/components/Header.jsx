@@ -32,7 +32,7 @@ const Header = () => {
             <Avatar
               src={avatar}
               alt="Avatar"
-              sx={{ height: "60px", width: "70px" }}
+              sx={{ height: "55px", width: "60px" }}
             />
           </Grid>
         </Grid>

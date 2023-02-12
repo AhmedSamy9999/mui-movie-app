@@ -2,6 +2,7 @@ import { FormControlLabel } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import Switch from "@mui/material/Switch";
 import React from "react";
+import { darkTheme } from "../theme/theme";
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 62,

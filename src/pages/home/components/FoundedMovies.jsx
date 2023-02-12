@@ -1,45 +1,31 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import { Box, Grid } from "@mui/material";
 import { SearchContext } from "../../../contexts/SearchContext.jsx";
 import MovieCard from "./MovieCard";
 import wait from "../../../utils/wait.js";
 import Loader from "../../../components/Loader.jsx";
 import ErrorMsg from "../../../components/ErrorMsg.jsx";
+import useFetch from "../../../Hooks/useFetch.jsx";
 const FoundedMovies = () => {
-  const { searchWord } = useContext(SearchContext);
-  const [movieList, setMovieList] = useState([]);
-  const [error, setError] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const { searchWord, movieList, setMovieList } = useContext(SearchContext);
 
   const api = import.meta.env.VITE_REACT_APP_API_KEY;
-
-  async function getMovies() {
-    try {
-      setIsLoading(true);
-      setError(null);
-      await wait(1500);
-      const response = await fetch(
-        `http://www.omdbapi.com/?apikey=${api}&s=${searchWord}`
-      );
-      const data = await response.json();
-      if (data.Response === "True") {
-        setMovieList(data.Search);
-      } else {
-        setMovieList([]);
-        setError(data.Error);
-      }
-    } catch (error) {
-      console.log("Movie not found!", error.message);
-    } finally {
-      setIsLoading(false);
-    }
-  }
+  const { isLoading, error, performFetch } = useFetch();
 
   useEffect(() => {
     if (searchWord) {
-      getMovies();
+      const url = `http://www.omdbapi.com/?apikey=${api}&s=${searchWord}`;
+      performFetch(url).then((data) => {
+        if (data) setMovieList(data.Search);
+      });
     }
   }, [searchWord]);
+
+  useEffect(() => {
+    if (error) {
+      setMovieList([]);
+    }
+  }, [error]);
 
   return (
     <Box mt={3}>

@@ -31,6 +31,7 @@ const MovieCard = ({ movieObject }) => {
             boxShadow: shadows[24],
           },
         }}
+        elevation={0}
       >
         <CardMedia
           src={Poster}

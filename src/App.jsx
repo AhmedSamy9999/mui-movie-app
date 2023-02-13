@@ -6,6 +6,7 @@ import SwitchTheme from "./components/SwitchTheme";
 import { darkTheme, lightTheme } from "./theme/theme";
 import { CssBaseline } from "@mui/material";
 import { SearchContextProvider } from "./contexts/SearchContext";
+import { FavListContextProvider } from "./contexts/FavListContext";
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(
@@ -30,7 +31,9 @@ function App() {
           <Container>
             <SwitchTheme value={isDarkMode} setValue={setIsDarkMode} />
             <SearchContextProvider>
-              <Outlet />
+              <FavListContextProvider>
+                <Outlet />
+              </FavListContextProvider>
             </SearchContextProvider>
           </Container>
         </Box>

@@ -26,7 +26,6 @@ const useFetch = () => {
         throw new Error(data.Error);
       }
     } catch (error) {
-      console.log("catch block", error.message);
       setError(error.message);
     } finally {
       setIsLoading(false);

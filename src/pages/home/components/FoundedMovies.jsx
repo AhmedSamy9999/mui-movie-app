@@ -14,7 +14,7 @@ const FoundedMovies = () => {
 
   useEffect(() => {
     if (searchWord) {
-      const url = `http://www.omdbapi.com/?apikey=${api}&s=${searchWord}`;
+      const url = `https://www.omdbapi.com/?apikey=${api}&s=${searchWord}`;
       performFetch(url).then((data) => {
         if (data) setMovieList(data.Search);
       });

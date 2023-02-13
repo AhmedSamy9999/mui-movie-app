@@ -27,7 +27,7 @@ const MovieInfo = () => {
   }
   useEffect(() => {
     const api = import.meta.env.VITE_REACT_APP_API_KEY;
-    const url = `http://www.omdbapi.com/?apikey=${api}&i=${movieId}`;
+    const url = `https://www.omdbapi.com/?apikey=${api}&i=${movieId}`;
     performFetch(url).then((data) => setMovieObject(data));
 
     const ifMovieInFavList = favList.some((movie) => movie.imdbID === movieId);

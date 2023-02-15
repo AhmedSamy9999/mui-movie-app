@@ -1,8 +1,6 @@
 import React from "react";
 import {
   Box,
-  Button,
-  ButtonGroup,
   Container,
   createTheme,
   ThemeProvider,
@@ -47,7 +45,7 @@ function App() {
     localStorage.setItem("theme", themeType);
   }, [themeType]);
 
-  const [mode, setMode] = useState("system");
+  const [mode, setMode] = useState(themeType);
   const handleMode = (event, newMode) => {
     if (newMode !== null) {
       setMode(newMode);
@@ -73,19 +71,19 @@ function App() {
               value={mode}
               exclusive
               onChange={handleMode}
-              sx={{ my: "20px", borderRadius: "12px" }}
+              sx={{ my: "20px" }}
             >
               <ToggleButton
-                sx={{ borderRadius: "12px" }}
-                value="dark"
-                aria-label="dark"
-                onClick={() => setThemeType("dark")}
+                sx={{ borderRadius: "10px" }}
+                value="light"
+                aria-label="light"
+                onClick={() => setThemeType("light")}
               >
-                <DarkModeOutlinedIcon sx={{ marginRight: "8px" }} />
-                Dark
+                <LightModeIcon sx={{ marginRight: "8px" }} />
+                Light
               </ToggleButton>
               <ToggleButton
-                sx={{ borderRadius: "12px" }}
+                sx={{ borderRadius: "10px" }}
                 value="system"
                 aria-label="system"
                 onClick={() => setThemeType("system")}
@@ -94,13 +92,13 @@ function App() {
                 System
               </ToggleButton>
               <ToggleButton
-                sx={{ borderRadius: "12px" }}
-                value="light"
-                aria-label="light"
-                onClick={() => setThemeType("light")}
+                sx={{ borderRadius: "10px" }}
+                value="dark"
+                aria-label="dark"
+                onClick={() => setThemeType("dark")}
               >
-                <LightModeIcon sx={{ marginRight: "8px" }} />
-                Light
+                <DarkModeOutlinedIcon sx={{ marginRight: "8px" }} />
+                Dark
               </ToggleButton>
             </ToggleButtonGroup>
             <SearchContextProvider>
